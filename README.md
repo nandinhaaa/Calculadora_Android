@@ -9,7 +9,9 @@ de logs e programação lógica básica de Apps
 # Compilado
 ![android](https://user-images.githubusercontent.com/91507393/231904315-d079c935-ae32-4e14-acc0-7f2afcd8ef9e.png)
 
-# Feito por:
-Maria Fernanda 
-# Professor:
+# Professor 
 Emerson Assis
+# Aluna 
+Maria Fernanda 
+
+![alice-paisdasmaravilhas](https://user-images.githubusercontent.com/91507393/227745123-50487a6f-7843-4c5b-bf9c-79a60d9bfe96.gif)
