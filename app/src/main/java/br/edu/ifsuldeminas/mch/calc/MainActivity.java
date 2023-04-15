@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
-        
+
         textViewResultado = findViewById(R.id.textViewResultadoID);
         textViewUltimaExpressao = findViewById(R.id.textViewUltimaExpressaoID);
 
@@ -57,21 +57,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         igual = findViewById(R.id.buttonIgualID);
         igual.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 if (view.getId() == R.id.buttonIgualID) {
-                     String expressao = textViewUltimaExpressao.getText().toString();
-                     try {
-                         Calculable calculadora = new ExpressionBuilder(expressao).build();
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.buttonIgualID) {
+                    String expressao = textViewUltimaExpressao.getText().toString();
+                    try {
+                        Calculable calculadora = new ExpressionBuilder(expressao).build();
 
-                         resultado = calculadora.calculate();
-                         textViewResultado.setText(resultado.toString());
-                     } catch (Exception e) {
+                        resultado = calculadora.calculate();
+                        textViewResultado.setText(resultado.toString());
+                      //  textViewUltimaExpressao.setText(resultado.toString());
+                        textViewUltimaExpressao.setText("");
 
-                     }
-                 }
-             }
-         });
+                    } catch (Exception e) {
+                        System.err.println("Erro ao avaliar expressão: " + e.getMessage());
+                    }
+
+                }
+            }
+        });
 
         botao_apagar.setOnClickListener(new View.OnClickListener() {
 
@@ -91,15 +95,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(!string.isEmpty()) {
 
-                    byte varByte = 0;
+                    byte var = 0;
                     int var1 = string.length()-1;
 
-                   String textViewUltimaExpressao1 = string.substring(varByte, var1);
-                   expressao.setText(textViewUltimaExpressao1);
+                    String textViewUltimaExpressao1 = string.substring(var, var1);
+                    expressao.setText(textViewUltimaExpressao1);
                 }
                 textViewResultado.setText("");
             }
         });
+
     }
     // método para inicar componentes pelo ID
 
@@ -139,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textViewUltimaExpressao.append(string);
             textViewResultado.setText(" ");
         }
+
     }
 
     @Override
@@ -215,35 +221,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.buttonVirgulaID:
-                AcrescentarExpressao(",", true);
+                AcrescentarExpressao(".", true);
 
                 break;
         }
 
         switch (view.getId()) {
             case R.id.buttonSomaID:
-            AcrescentarExpressao("+", false);
+                AcrescentarExpressao("+", false);
 
                 break;
         }
 
         switch (view.getId()) {
             case R.id.buttonSubtracaoID:
-            AcrescentarExpressao("-", false);
+                AcrescentarExpressao("-", false);
 
                 break;
         }
 
         switch (view.getId()) {
             case R.id.buttonMultiplicacaoID:
-            AcrescentarExpressao("*", false);
+                AcrescentarExpressao("*", false);
 
                 break;
         }
 
         switch (view.getId()) {
             case R.id.buttonDivisaoID:
-            AcrescentarExpressao("/", false);
+                AcrescentarExpressao("/", false);
 
                 break;
         }
@@ -254,5 +260,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
+
     }
 }
